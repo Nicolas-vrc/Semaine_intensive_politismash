@@ -188,3 +188,16 @@ h2 {
 	font-size: 2em;
 	font-family: 'Montserrat', sans-serif;
 }
+#messagefin {
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	background-color: white;
+	top: 30%;
+	z-index: 999;
+	left: 30%;
+	border-radius: 15px;
+}
+.cache{
+	display: none;
+}

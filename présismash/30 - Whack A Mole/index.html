@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
-
+	<div class="cache" id="messagefin"><p class="rejouer" onClick="startGame()" > Rejouer ?</p></div>
   <h1>Politismash <span class="score">0</span></h1>
   <div class="button" onClick="startGame()">Smashez !</div>
-
+	
   <div class="game">
     <div class="hole hole1">
       <div class="mole"></div>
@@ -55,6 +55,7 @@
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
 	const temps = document.querySelector('.temps');
+	const popup = document.querySelector('#messagefin');
   let lastHole;
   let timeUp = false;
   let score = 0;
@@ -94,6 +95,9 @@ moles[i].classList.toggle(presidentlist[idx]);
   }
 //fait sortir les personnages de trous
   function startGame() {
+	  if(!(popup.classList.contains('cache'))){
+		  popup.classList.add('cache');
+	  }
 	  randompresident();
 	  window.setInterval(function a(){
 		 if(mich > 0){
@@ -103,7 +107,10 @@ moles[i].classList.toggle(presidentlist[idx]);
     timeUp = false;
     score = 0;
     sortietrou();
-    setTimeout(() => timeUp = true, 10000)
+    setTimeout(function time(){
+	timeUp = true;
+	popup.classList.remove('cache');
+	},10000)
 	var mich = 11;
   }
 // lance le jeu
